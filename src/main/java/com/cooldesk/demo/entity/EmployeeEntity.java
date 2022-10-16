@@ -1,12 +1,24 @@
-package com.cooldesk.demo.model;
+package com.cooldesk.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-//@JsonIgnoreProperties({"department"})
-public class Employee {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "employees")
+public class EmployeeEntity {
+
+
+    @Id
     private String id;
+    private String firstName;
+    private String lastName;
+    private String email;
+
+    //@JsonIgnore
+    private String department;
 
     public String getId() {
         return id;
@@ -47,12 +59,4 @@ public class Employee {
     public void setDepartment(String department) {
         this.department = department;
     }
-
-    private String firstName;
-    private String lastName;
-    private String email;
-
-    //@JsonIgnore
-    private String department;
-
 }
