@@ -3,13 +3,15 @@ package com.cooldesk.demo.controllers;
 import com.cooldesk.demo.model.Employee;
 import com.cooldesk.demo.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/employees")
 public class EmployeeController {
+
+    @Qualifier("employeeServiceImp")
     @Autowired
     private EmployeeService employeeService;
 
